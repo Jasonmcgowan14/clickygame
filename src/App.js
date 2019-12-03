@@ -42,7 +42,7 @@ class App extends Component {
   checkGuess = (name, cb) => {
     const newState = { ...this.state };
     if (newState.pickedChars.includes(name)) {
-      newState.alertMessage = `YOU ALREADY PICKED "${name.toUpperCase()}"!`
+      newState.alertMessage = `Wrong, thats your second time clicking that one! "${name.toUpperCase()}"!`
       newState.pickedChars = []
       this.setState(this.state = newState)
     } else {
@@ -63,7 +63,7 @@ class App extends Component {
 
   alertWinner = (newState) => {
     if (newState.pickedChars.length === 12) {
-      newState.alertMessage = "CHAMPION!";
+      newState.alertMessage = "Winner winner dinnery with baby yoda!";
       newState.pickedChars = [];
       this.setState(this.state = newState)
     }
@@ -78,7 +78,7 @@ class App extends Component {
 
           <GridMDC item lg={12}>
             <PaperMDC>
-              {this.state.alertMessage === "GOOD CHOICE!" ? (
+              {this.state.alertMessage === "Nice!" ? (
                 <Alert message={this.state.alertMessage} style={{ color: "green" }} />
               ) : (
                   <Alert message={this.state.alertMessage} style={{ color: "red" }} />
